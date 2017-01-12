@@ -7,14 +7,15 @@ var logger = require("morgan");
 var mongoose = require("mongoose");
 
 // Requiring our Note and Article models
-/*
+
 var Note = require("./models/Note.js");
 var Article = require("./models/Article.js");
-*/
+
 
 // Our scraping tools
 var request = require("request");
 var cheerio = require("cheerio");
+
 // Mongoose mpromise deprecated - use bluebird promises
 var Promise = require("bluebird");
 
@@ -60,11 +61,11 @@ app.get("/", function(req, res) {
 // A GET request to scrape the echojs website
 app.get("/scrape", function(req, res) {
   // First, we grab the body of the html with request
-  request("http://www.echojs.com/", function(error, response, html) {
+  request("http://www.nytimes.com/es/", function(error, response, html) {
     // Then, we load that into cheerio and save it to $ for a shorthand selector
     var $ = cheerio.load(html);
     // Now, we grab every h2 within an article tag, and do the following:
-    $("article h2").each(function(i, element) {
+    $('h2.headline').each(function(i, element) {
 
       // Save an empty result object
       var result = {};
@@ -95,17 +96,6 @@ app.get("/scrape", function(req, res) {
   // Tell the browser that we finished scraping the text
   res.send("Scrape Complete!");
 });
-
-
-
-
-
-
-
-
-
-
-
 
 
 
