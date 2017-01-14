@@ -1,6 +1,6 @@
 //Collect the articles as JSON objects
 
-function scrapeArticles(){
+function reloadArticles(){
 	
 	$.getJSON("/articles", function(data){
 		//Remove previously placed articles		
@@ -17,7 +17,7 @@ function scrapeArticles(){
 		
 		//Displaying the apropos
 		$("#articles").append("<p class='title' data-id='" + data[i]._id + "'>" + data[i].title + "  -  <a href='" + data[i].link + "'>Link</a></p>" + "<a data-id='"+ 
-        data[i]._id + "' href='#notes' data-target='notes' class='showNotes modal-trigger waves-effect waves-light btn  blue darken-1'>Comments ("+data[i].note.length + ")</button>");
+        data[i]._id + "' href='#notes' data-target='notes' class='showNotes modal-trigger waves-effect waves-light btn  blue darken-1'>Comments ("+ data[i].note.length + ")</button>");
       	
       }
 	
@@ -26,4 +26,4 @@ function scrapeArticles(){
 }
 
 
-scrapeArticles();   
+reloadArticles();   

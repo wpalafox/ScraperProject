@@ -19,7 +19,7 @@ var NoteSchema = new Schema({
 // These ids are referred to in the Article model
 
 // Create the Note model with the NoteSchema
-var Note = mongoose.model("Note", NoteSchema);
+var notes = mongoose.model("notes", NoteSchema);
 
 // Export the Note model
-module.exports = Note;
+module.exports = notes;

@@ -8,7 +8,8 @@ var ArticleSchema = new Schema({
   // title is a required string
   title: {
     type: String,
-    required: true
+    required: true,
+    unique: true
   },
   // link is a required string
   link: {
@@ -19,11 +20,16 @@ var ArticleSchema = new Schema({
   note: {
     type: Schema.Types.ObjectId,
     ref: "Note"
+  },
+  saved:{
+      type: Boolean,
+      default : false
+
   }
 });
 
 // Create the Article model with the ArticleSchema
-var Article = mongoose.model("Article", ArticleSchema);
+var articles = mongoose.model("Article", ArticleSchema);
 
 // Export the model
-module.exports = Article;
+module.exports = articles;
