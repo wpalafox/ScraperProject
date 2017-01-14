@@ -1,10 +1,16 @@
-body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-  }
+.navbar {
 
-  main {
-    flex: 1 0 auto;
-  }
-      
+	font-size: 200%;
+	background-color: #DEDE28;
+	
+	
+
+
+}
+
+body{
+
+	background-color: #BA1324;
+
+
+}
